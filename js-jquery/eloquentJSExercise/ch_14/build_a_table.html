@@ -1,34 +1,47 @@
 <html>
-    <head></head>
-    <body>
-        <h1>Mountains</h1>
-        <div id="mountains">
-        <table>
-            <tr>
-                <th>name</th>
-                <th>height</th>
-                <th>place</th>
-            </tr>
-            <tr>
-                <td>Kilimanjaro</td>
-                <td>5895</td>
-                <td>Tanzania</td>
-            </tr>
-        </table>
-       </div>
+<head></head>
+<body>
+    <h1>Mountains</h1>
+    <div id="mountains">
+    </div>  
+    <script>
+        const MOUNTAINS = [
+        {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+        {name: "Everest", height: 8848, place: "Nepal"},
+        {name: "Mount Fuji", height: 3776, place: "Japan"},
+        {name: "Vaalserberg", height: 323, place: "Netherlands"},
+        {name: "Denali", height: 6168, place: "United States"},
+        {name: "Popocatepetl", height: 5465, place: "Mexico"},
+        {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+        ];
         
-        <script>
-            const MOUNTAINS = [
-            {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
-            {name: "Everest", height: 8848, place: "Nepal"},
-            {name: "Mount Fuji", height: 3776, place: "Japan"},
-            {name: "Vaalserberg", height: 323, place: "Netherlands"},
-            {name: "Denali", height: 6168, place: "United States"},
-            {name: "Popocatepetl", height: 5465, place: "Mexico"},
-            {name: "Mont Blanc", height: 4808, place: "Italy/France"}
-            ];
-        
+        addTable = ( data ) =>{
+            let keys = Object.keys( MOUNTAINS[0] );
+            let tableHead = document.createElement("tr");
+            let newTable = document.createElement("table");
+            for( let key of keys ){
+                let th = document.createElement("th");
+                th.textContent = key;
+                tableHead.appendChild(th);
+            }
+            newTable.appendChild( tableHead );
             
-        </script>
-    </body>
+            for( let row of data ){
+                let currentRow = document.createElement("tr");
+                for( let key of keys ){
+                    let cell = document.createElement( "td" );
+                    cell.textContent = row[key];
+                    if( typeof row[key] == "number" ){
+                        cell.style.textAlign = "right";
+                    }
+                    currentRow.appendChild( cell );
+                }
+                newTable.appendChild( currentRow );
+            }
+            return newTable;
+        }
+        document.querySelector('#mountains').appendChild( addTable(MOUNTAINS) );
+        
+    </script>
+</body>
 </html>
