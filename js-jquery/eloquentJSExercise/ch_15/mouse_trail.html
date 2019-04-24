@@ -1,43 +1,42 @@
 <html>
 <head>
-    <style>
-        .trail { /* className for the trail elements */
-            position: absolute;
-            height: 6px; width: 6px;
-            border-radius: 3px;
-            background: teal;
-        }
-        body {
-            height: 300px;
-        }
-    </style>
-    
-    <script>
-        let numPtrs = 30;
-        let arrayOfPtrs = new Array();
-        let currPtrIdx = 0;
-        while( arrayOfPtrs.length < numPtrs ){
-            let tempTail = document.createElement("div");
-            tempTail.className = "trail";
-            arrayOfPtrs.push( tempTail );
-        }
-        window.addEventListener("mousemove" , event => {
-            event.preventDefault();
-            let leftPos = event.clientX;
-            let topPos = event.clientY;
-            let tempTail;
-            if( currPtrIdx == numPtrs - 1 ){
-                currPtrIdx = 0;
-                document.body.removeChild( arrayOfPtrs[currPtrIdx] );
-            }
-            tempTail = arrayOfPtrs[currPtrIdx];
-            tempTail.style.left = leftPos + "px";
-            tempTail.style.top = topPos + "px";
-            document.body.appendChild(tempTail);
-            // console.log("x:",leftPos," y:", topPos);
-            currPtrIdx++;
-        });
-    </script>
+  <style>
+    .trail {
+      position: absolute;
+      height: 6px; width: 6px;
+      border-radius: 3px;
+      background: teal;
+    }
+    body {
+      height: 300px;
+    }
+  </style>
+
+  <script>
+    let numPtrs = 30;
+    let arrayOfPtrs = new Array();
+    let currPtrIdx = 0;
+    while ( arrayOfPtrs.length < numPtrs ) {
+      let tempTail = document.createElement("div");
+      tempTail.className = "trail";
+      arrayOfPtrs.push( tempTail );
+    }
+    window.addEventListener("mousemove" , event => {
+      event.preventDefault();
+      let leftPos = event.clientX;
+      let topPos = event.clientY;
+      let tempTail;
+      if ( currPtrIdx == numPtrs - 1 ) {
+        currPtrIdx = 0;
+        document.body.removeChild( arrayOfPtrs[currPtrIdx] );
+      }
+      tempTail = arrayOfPtrs[currPtrIdx];
+      tempTail.style.left = leftPos + "px";
+      tempTail.style.top = topPos + "px";
+      document.body.appendChild(tempTail);
+      currPtrIdx++;
+    });
+  </script>
 </head>
 <body></body>
 </html>
