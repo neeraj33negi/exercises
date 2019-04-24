@@ -1,0 +1,38 @@
+<head>
+    <style>
+        #box{
+            background-color: crimson;
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 400px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $( () => {
+            console.log("ready");
+            $("button#hide").click( (e) => {
+                $('.tohide').hide();
+            } )
+            $("button#unhide").click( (e) => {
+                $('.tohide').show();
+            } )
+            $("button#addCOlor").click( (e) => {
+                $("div.tohide").css("background", "gray");
+                $("#box").animate({
+                    left: 0,
+                    opacity: 0.5
+                    })
+            } )
+        } )
+    </script>
+    <body>
+        <div class="tohide">This is 1</div>
+        <div class="tohide">This is 2</div>
+        <button id="hide">Hide</button>
+        <button id="unhide">Unhide</button>
+        <button id="addColor">Add Color</button>
+        <div id="box"></div>
+    </body>
+</head>
