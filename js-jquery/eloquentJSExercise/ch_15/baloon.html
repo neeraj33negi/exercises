@@ -1,28 +1,28 @@
 <html>
 <head></head>
 <body>
-    <p>🎈</p>
-    
-    <script>
-        let baloon = document.querySelector("p");
-        let currentSize = 20; 
-        let limit = 100;
+  <p>🎈</p>
+
+  <script>
+    let baloon = document.querySelector("p");
+    let currentSize = 20;
+    let limit = 100;
+    baloon.style.fontSize = currentSize + "px";
+    document.body.addEventListener("keydown", loon = (event) => {
+      if( event.key == "ArrowDown" ) {
+        currentSize = currentSize*0.9;
         baloon.style.fontSize = currentSize + "px";
-        document.body.addEventListener("keydown", loon = (event) => {
-            if( event.key == "ArrowDown" ){
-                currentSize = currentSize*0.9;
-                baloon.style.fontSize = currentSize + "px";
-            }else if( event.key == "ArrowUp" ){
-                currentSize = currentSize*1.1;
-                if( limit <= currentSize ){
-                    baloon.textContent = "💥 ";
-                    document.body.removeEventListener("keydown", loon);
-                }
-                else{
-                    baloon.style.fontSize = currentSize + "px";
-                }
-            }
-        });
-    </script>
+      } else if( event.key == "ArrowUp" ) {
+        currentSize = currentSize*1.1;
+        if( limit <= currentSize ) {
+          baloon.textContent = "💥 ";
+          document.body.removeEventListener("keydown", loon);
+        }
+        else {
+          baloon.style.fontSize = currentSize + "px";
+        }
+      }
+    });
+  </script>
 </body>
 </html>

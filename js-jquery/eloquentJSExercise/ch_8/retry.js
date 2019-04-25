@@ -9,19 +9,18 @@ function primitiveMultiply(a, b) {
 }
 
 function reliableMultiply(a, b) {
-    while(true){
-        try{
-            let result = primitiveMultiply(a,b);
-            return result;
-        }catch(e){
-            if( e instanceof MultiplicatorUnitFailure ){
-                continue;
-            }else{
-                break;
-            }
-        }
+  while(true) {
+    try {
+      let result = primitiveMultiply(a,b);
+      return result;
+    } catch(e) {
+      if( e instanceof MultiplicatorUnitFailure ) {
+        continue;
+      } else {
+        break;
+      }
     }
+  }
 }
 
 console.log(reliableMultiply(8, 8));
-// → 64

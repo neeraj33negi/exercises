@@ -1,21 +1,21 @@
 function countBs(string){
-    let numBs = 0;
-    for( let i = 0; i < string.length; ++i ){
-        if( string[i] == 'B' ){
-            numBs++;
-        }
+  let numBs = 0;
+  for (let i = 0; i < string.length; ++i) {
+    if(string[i] == 'B') {
+      numBs++;
     }
-    return numBs;
+  }
+  return numBs;
 }
 
-function countChar(string, char){
-    let numChars = 0;
-    for( let i = 0; i < string.length; ++i ){
-        if(string[i] == char){
-            numChars++;
-        }
+function countChar(string, char) {
+  let numChars = 0;
+  for(let i = 0; i < string.length; ++i) {
+    if(string[i] == char) {
+      numChars++;
     }
-    return numChars;
+  }
+  return numChars;
 }
 
 console.log( countBs("BBSB") );
