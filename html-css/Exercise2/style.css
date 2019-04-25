@@ -1,102 +1,102 @@
 body{
-    font-family: Arial, Helvetica, sans-serif;
-    color: #A0A0A0;
+  font-family: 'Raleway', sans-serif;
+  color: #A0A0A0;
 }
 h1,h2,h3,h4,h5,h6{
-    color: black;
+  color: black;
 }
 div.container{
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 /* Main text style */
 div.contentArea{
-    text-align: center;
-    width: 55%;
-    margin: 0 3% 0;
+  text-align: center;
+  width: 55%;
+  margin: 0 3% 0;
 }
 
 a{
-    text-decoration: none;
-    color: #2AACB1;
+  text-decoration: none;
+  color: #2AACB1;
 }
 
 div.contentItems{
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .itemImage img{
-    height: 50px;
-    width: 50px;
+  height: 50px;
+  width: 50px;
 }
 
 div.itemBox{
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 40%;
-    margin: 2.5%;
-
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 40%;
+  margin: 2.5%;
+  
 }
 
 /* Form style */
 div.formArea{
-    display: flex;
-    flex-direction: column;
-    width: 22%;
-    padding: 3%;
-    margin: 2.6%;
-    box-shadow: 0 4px 8px 0  #A0A0A0, 0 6px 20px 0  #A0A0A0;
+  display: flex;
+  flex-direction: column;
+  width: 22%;
+  padding: 3%;
+  margin: 2.6%;
+  box-shadow: 0 4px 8px 0  #A0A0A0, 0 6px 20px 0  #A0A0A0;
 }
 
 div.formHeader{
-    text-align: center;
+  text-align: center;
 }
 
 input[type=number], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 3.8% 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 3.8% 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
-  
+
 input[type=submit] {
-    width: 100%;
-    background-color: #2AACB1;
-    color: white;
-    padding: 1.5em 4em;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  width: 100%;
+  background-color: #2AACB1;
+  color: white;
+  padding: 1.5em 4em;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
-  
+
 input[type=submit]:hover {
-    background-color: #2AACB1;
+  background-color: #2AACB1;
 }
 
 div.formFooter{
-    text-align: center;
+  text-align: center;
 }
 
 label{
-    color: black;
-    margin: 5% 0 5% 0;
+  color: black;
+  margin: 5% 0 5% 0;
 }
 
 div.radioOptionsVehicle{
-    display: flex;
-    flex-direction: row;
-    margin: 2.5%;
-    color: #A0A0A0;
+  display: flex;
+  flex-direction: row;
+  margin: 2.5%;
+  color: #A0A0A0;
 }
 
 /*Radio button style*/
