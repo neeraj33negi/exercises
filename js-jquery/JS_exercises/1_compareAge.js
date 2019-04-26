@@ -14,3 +14,4 @@ var user1 = new User("neeraj", 10);
 var user2 = new User("shubham", 20);
 
 console.log( user1.compareAge(user2) );
+
