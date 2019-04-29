@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css"></style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+
+      class formController {
+        constructor(inputId, outputId, submitId) {
+          this.inputElementId = "#" + inputId;
+          this.outputElementId = "#" + outputId;
+          this.submitElementId = "#" + submitId;
+          $(this.outputElementId).prop('disabled', true);
+        }
+        isNumber(text) {
+          return !isNaN(text);
+        }
+        disableSubmitAndSetOutput() {
+          $(this.submitElementId).prop('disabled', true);
+          this.setOutputFalse();
+        }
+        enableSubmitAndSetOutput() {
+          $(this.submitElementId).prop('disabled', false);
+          this.setOutputTrue();
+        }
+        get text() {
+          return $(this.inputElementId).val();
+        }
+        setOutputFalse() {
+          $(this.outputElementId).val("false");
+        }
+        setOutputTrue() {
+          $(this.outputElementId).val("true");
+        }
+      }
+
+      var form = new formController("number", "result", "submit");
+
+      $("#number").on('input', function() {
+        var text = form.text;
+        form.isNumber(text) ? form.enableSubmitAndSetOutput() : form.disableSubmitAndSetOutput();
+      } );
+    } );
+
+  </script>
+
+</head>
+<body>
+  <form>
+    <label for="number">Enter Number:</label>
+    <input type="text" name="numberInput" id="number">
+    <label for="result">Result:</label>
+    <input type="text" name="resultOutput" id="result"><br>
+    <input type="submit" id="submit">
+  </form>
+</body>
+</html>

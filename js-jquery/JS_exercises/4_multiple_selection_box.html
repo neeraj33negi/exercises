@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <style type="text/css">
+    select {
+      border: 1px solid gray;
+      width: 200px;
+      overflow: auto;
+    }
+    div {
+      float: left;
+      margin: 5px;
+    }
+    button{
+      text-align: center;
+      width:70px;
+      margin: 5px;
+      padding: 5px;
+      background-color: #ff6000;
+      color: white;
+      border-radius: 8px;
+      display: block;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+      $("#addBtn").click( function() {
+        var country = $("select#country-select option:selected").val();
+        if( country != undefined ) {
+          $("select#selected-countries").append(`<option>${country}</option>`);
+          $("select#country-select option:selected").remove();
+        }
+      } );
+      $("#removeBtn").click( function() {
+        var country = $("select#selected-countries option:selected").val();
+        if( country != undefined ) {
+          $("select#country-select").append(`<option>${country}</option>`);
+          $("select#selected-countries option:selected").remove();
+        }
+      } );
+    } );
+  </script>
+
+</head>
+<body>
+  <div id="main">
+    <div id="list1">
+      <select id="country-select" size="5">
+        <option>India</option>
+        <option>USA</option>
+        <option>Nepal</option>
+        <option>Bhutan</option>
+        <option>China</option>
+        <option>SriLanka</option>
+        <option>Afghanistan</option>
+        <option>Russia</option>
+        <option>Ukraine</option>
+      </select>
+    </div>
+    <div id="buttons">
+      <button id="addBtn">Add &#9654</button>
+      <button id="removeBtn">&#9664 Remove</button>
+    </div>
+    <div id="list2">
+      <select id="selected-countries" size="5"></select>
+    </div>
+  </div>
+
+</body>
+</html>
