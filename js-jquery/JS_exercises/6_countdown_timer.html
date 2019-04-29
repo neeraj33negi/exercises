@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    div#timer {
+      display: block;
+      float: left;
+    }
+    div#mainForm {
+      display: block;
+      text-align: center;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready( function() {
+      var isPlaying = false;
+      var inputDisabled = false;
+      var remainingTime;
+      var interval;
+      function runTimer() {
+        $('button').text("Pause");
+        isPlaying = true;
+        interval = setInterval(function() {
+          if( remainingTime >= 0) {
+            $('div#timer').text(`${remainingTime--}s`);
+          } else {
+            clearInterval(interval);
+            $('button').text("Play");
+            $('input').prop('disabled', false);
+            inputDisabled = false;
+          }
+        }, 1000);
+      }
+      $('button').on('click', function() {
+        if( inputDisabled ) {
+          if( !isPlaying ) {
+            runTimer();
+            isPlaying = true;
+
+          } else {
+            clearInterval(interval);
+            isPlaying = false;
+            $('button').text("Play");
+          }
+        } else {
+          var inputText = $('input').val();
+          if( isNaN(inputText) ) {
+
+          } else {
+            remainingTime = parseInt(inputText, 10);
+            if( remainingTime > 0) {
+              inputDisabled = true;
+              $('input').prop('disabled', true);
+              runTimer();
+            }
+          }
+        }
+      });
+        } );
+      </script>
+    </head>
+    <body>
+      <div id="timer"></div>
+      <div id="mainForm">
+        <input type="text" name="timeInput"> <button>Play</button>
+      </div>
+    </body>
+    </html>
