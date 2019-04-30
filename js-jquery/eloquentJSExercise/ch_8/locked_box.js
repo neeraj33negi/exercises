@@ -44,4 +44,3 @@ try {
   console.log( "Error raised:", e);
 }
 console.log(box.locked);
-
