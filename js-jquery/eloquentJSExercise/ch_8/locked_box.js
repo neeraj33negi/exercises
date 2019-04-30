@@ -1,7 +1,11 @@
 const box = {
   locked: true,
-  unlock() { this.locked = false; },
-  lock() { this.locked = true;  },
+  unlock() {
+    this.locked = false;
+  },
+  lock() {
+    this.locked = true;
+  },
   _content: [],
   get content() {
     if (this.locked) throw new Error("Locked!");
@@ -11,19 +15,21 @@ const box = {
 
 function withBoxUnlocked(body) {
   let isLocked = box.locked;
+  if( !isLocked ) {
+    console.log("unlocking....");
+    return body();
+  }
   try {
-    if( isLocked ) {
-      box.unlock();
-    }
-    body;
+    box.unlock();
+    return body();
   } catch(e) {
-    return "Error: " + e;
+    return e;
   } finally {
-    if(isLocked) {
-      box.lock();
-    }
+    box.lock();
   }
 }
+
+
 
 withBoxUnlocked(function() {
   box.content.push("gold piece");
@@ -32,8 +38,10 @@ withBoxUnlocked(function() {
 try {
   withBoxUnlocked(function() {
     throw new Error("Pirates on the horizon! Abort!");
+    console.log("throw");
   });
 } catch (e) {
-  console.log("Error raised:", e);
+  console.log( "Error raised:", e);
 }
 console.log(box.locked);
+
