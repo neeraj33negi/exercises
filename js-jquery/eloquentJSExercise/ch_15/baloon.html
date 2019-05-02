@@ -6,15 +6,18 @@
   <script>
     let baloon = document.querySelector("p");
     let currentSize = 20;
-    let limit = 100;
+    let maxLimit = 100;
+    let minLimit = 10;
     baloon.style.fontSize = currentSize + "px";
     document.body.addEventListener("keydown", loon = (event) => {
       if( event.key == "ArrowDown" ) {
-        currentSize = currentSize*0.9;
-        baloon.style.fontSize = currentSize + "px";
+        if( currentSize > minLimit ) {
+          currentSize = currentSize*0.9;
+          baloon.style.fontSize = currentSize + "px";
+        }
       } else if( event.key == "ArrowUp" ) {
         currentSize = currentSize*1.1;
-        if( limit <= currentSize ) {
+        if( maxLimit <= currentSize ) {
           baloon.textContent = "💥 ";
           document.body.removeEventListener("keydown", loon);
         }
