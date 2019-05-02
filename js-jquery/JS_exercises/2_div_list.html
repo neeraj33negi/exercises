@@ -1,103 +1,103 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>JS Exercise 2</title>
+  <title>JS Exercise 2</title>
 
-	<style type="text/css">
-		#main {
-			height: 100px;
-			overflow: scroll;
-			background-color: lightblue;
-		}
-		#topLevel{
-			padding: 0px;
-			margin: 0px;
-		}
-	</style>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			var ulPosY = $("ul")[0].getBoundingClientRect().y;
-			$("#main").find('.child').hide();
-			$('.parent').on('change',function() {
-				if( $(this).is(':checked') ) {
-					$(this).parent('li').find('.child').show();
-					$(this).parent('li').find('.child li .childList').prop('checked',true);
-					var thisElePosY = this.getBoundingClientRect().y;
-					var yPosDiff = thisElePosY - ulPosY;
-					$("#main").scrollTop(yPosDiff);
+  <style type="text/css">
+    #main {
+      height: 100px;
+      overflow: scroll;
+      background-color: lightblue;
+    }
+    #topLevel{
+      padding: 0px;
+      margin: 0px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var ulPosY = $("ul")[0].getBoundingClientRect().y;
+      $("#main").find('.child').hide();
+      $('.parent').on('change',function() {
+        if( $(this).is(':checked') ) {
+          $(this).parent('li').find('.child').show();
+          $(this).parent('li').find('.child li .childList').prop('checked',true);
+          var thisElePosY = this.getBoundingClientRect().y;
+          var yPosDiff = thisElePosY - ulPosY;
+          $("#main").scrollTop(yPosDiff);
 
-				} else {
-					$(this).parent('li').find('.child').hide();
-					$(this).parent('li').find('.child li .childList').prop('checked',false);
-				}
-			});
+        } else {
+          $(this).parent('li').find('.child').hide();
+          $(this).parent('li').find('.child li .childList').prop('checked',false);
+        }
+      });
 
-			$('.childList').on('change', function () {
-				var parentList = $(this).parents('li')[1];
-				var parentUL = $(this).parents('ul')[0];
-				var childList = $(parentList).find('li .childList');
-				console.log(parentList);
-				var flag = 0;
-				$(childList).each( function() {
-					if( $(this).is(':checked') ) {
-						flag = 1;
-					}
-				} );
+      $('.childList').on('change', function () {
+        var parentList = $(this).parents('li')[1];
+        var parentUL = $(this).parents('ul')[0];
+        var childList = $(parentList).find('li .childList');
+        console.log(parentList);
+        var flag = 0;
+        $(childList).each( function() {
+          if( $(this).is(':checked') ) {
+            flag = 1;
+          }
+        } );
 
-				if( flag ) {
-					//parent checkbox is already visible
-				} else {
-					$(parentList).find('.parent').prop('checked', false);
-					$(parentUL).hide();
-				}
-			} );
-		})
-	</script>
+        if( flag ) {
+          //parent checkbox is already visible
+        } else {
+          $(parentList).find('.parent').prop('checked', false);
+          $(parentUL).hide();
+        }
+      } );
+    })
+  </script>
 </head>
 
 <body>
-	<div id="main">
-		<ul id="topLevel">
-			<li>
-				<input type="checkbox" id="color" class="parent" name="colors">Color<br>
-				<ul class="child">
-					<li><input type="checkbox" class="childList color-list" name="red">Red<br></li>
-					<li><input type="checkbox" class="childList color-list" name="yellow">Yellow<br></li>
-					<li><input type="checkbox" class="childList color-list" name="green">Green<br></li>
-					<li><input type="checkbox" class="childList color-list" name="blue">Blue<br></li>
-				</ul>
+  <div id="main">
+    <ul id="topLevel">
+      <li>
+        <input type="checkbox" id="color" class="parent" name="colors">Color<br>
+        <ul class="child">
+          <li><input type="checkbox" class="childList color-list" name="red">Red<br></li>
+          <li><input type="checkbox" class="childList color-list" name="yellow">Yellow<br></li>
+          <li><input type="checkbox" class="childList color-list" name="green">Green<br></li>
+          <li><input type="checkbox" class="childList color-list" name="blue">Blue<br></li>
+        </ul>
 
-			</li>
+      </li>
 
-			<li>
-				<input type="checkbox" id="drink" class="parent" name="drinks">Drinks<br>
-				<ul class="child" id="drink-list">
-					<li><input type="checkbox" class="childList" name="pepsi">Pepsi<br></li>
-					<li><input type="checkbox" class="childList" name="sprite">Sprite<br></li>
-					<li><input type="checkbox" class="childList" name="lassi">Lassi<br></li>
-					<li><input type="checkbox" class="childList" name="chokoshake">Choco-Shake<br></li>
-				</ul>
-			</li>
+      <li>
+        <input type="checkbox" id="drink" class="parent" name="drinks">Drinks<br>
+        <ul class="child" id="drink-list">
+          <li><input type="checkbox" class="childList" name="pepsi">Pepsi<br></li>
+          <li><input type="checkbox" class="childList" name="sprite">Sprite<br></li>
+          <li><input type="checkbox" class="childList" name="lassi">Lassi<br></li>
+          <li><input type="checkbox" class="childList" name="chokoshake">Choco-Shake<br></li>
+        </ul>
+      </li>
 
-			<li>
-				<input type="checkbox" id="movie" class="parent" name="movies">Movies<br>
-				<ul class="child" id="movie-list">
-					<li><input type="checkbox" class="childList" name="interstellar">Interstellar<br></li>
-					<li><input type="checkbox" class="childList" name="harrypotter">Harry Potter<br></li>
-					<li><input type="checkbox" class="childList" name="boyhood">Boyhood<br></li>
-					<li><input type="checkbox" class="childList" name="khiladi">Khiladi<br></li>
-			</ul>
+      <li>
+        <input type="checkbox" id="movie" class="parent" name="movies">Movies<br>
+        <ul class="child" id="movie-list">
+          <li><input type="checkbox" class="childList" name="interstellar">Interstellar<br></li>
+          <li><input type="checkbox" class="childList" name="harrypotter">Harry Potter<br></li>
+          <li><input type="checkbox" class="childList" name="boyhood">Boyhood<br></li>
+          <li><input type="checkbox" class="childList" name="khiladi">Khiladi<br></li>
+      </ul>
 
-			<li>
-				<input type="checkbox" id="bike" class="parent" name="bikes">Bikes<br>
-				<ul class="child" id="bike-list">
-					<li><input type="checkbox" class="childList" name="cbz">CBZ<br></li>
-					<li><input type="checkbox" class="childList" name="starz">Starz<br></li>
-					<li><input type="checkbox" class="childList" name="pulsar">Pulsar<br></li>
-					<li><input type="checkbox" class="childList" name="discover">Discover<br></li>
-			</li>
-		</ul>
-	</div>
+      <li>
+        <input type="checkbox" id="bike" class="parent" name="bikes">Bikes<br>
+        <ul class="child" id="bike-list">
+          <li><input type="checkbox" class="childList" name="cbz">CBZ<br></li>
+          <li><input type="checkbox" class="childList" name="starz">Starz<br></li>
+          <li><input type="checkbox" class="childList" name="pulsar">Pulsar<br></li>
+          <li><input type="checkbox" class="childList" name="discover">Discover<br></li>
+      </li>
+    </ul>
+  </div>
 </body>
 </html>
