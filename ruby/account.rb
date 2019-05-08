@@ -10,16 +10,10 @@ class Account
   end
   def deposit amount
     @balance += amount
-    puts "Account number: #{@account_no}"
-    puts "Account holder name: #{@name}"
-    puts "Account balance: #{@balance}"
   end
   def withdraw amount
     exit if @balance - amount < 0
     @balance -= amount
-    puts "Account number: #{@account_no}"
-    puts "Account holder name: #{@name}"
-    puts "Account balance: #{@balance}"
   end
 end
 
@@ -33,6 +27,12 @@ mtx = Mutex.new
 mtx.synchronize do
   user1.withdraw transfer_amount
   user2.deposit transfer_amount
+  puts "Account number: #{user1.account_no}"
+  puts "Account holder name: #{user1.name}"
+  puts "Account balance: #{user1.balance}"
+  puts "Account number: #{user2.account_no}"
+  puts "Account holder name: #{user2.name}"
+  puts "Account balance: #{user2.balance}"
 end
 
 
