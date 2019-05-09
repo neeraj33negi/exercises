@@ -34,5 +34,3 @@ mtx.synchronize do
   puts "Account holder name: #{user2.name}"
   puts "Account balance: #{user2.balance}"
 end
-
-
