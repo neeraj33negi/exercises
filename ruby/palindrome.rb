@@ -4,10 +4,10 @@ class String
   end
 end
 
-def GetStringFromArgs args
-  args.reduce("") {|saved, curr| saved + curr}
+def get_string_from_args args
+  args.join('')
 end
 
-puts "Please provide an input" if ARGV.length == 0
-str = (ARGV.length == 0) ? gets.chomp : (GetStringFromArgs ARGV)
-puts str.palindrome? ? "Input string is a palindome" : "Input string is not a palindome"
+puts 'Please provide an input' if ARGV.length == 0
+str = (ARGV.length == 0) ? gets.chomp : (get_string_from_args ARGV)
+puts str.palindrome? ? 'Input string is a palindome' : 'Input string is not a palindome'
