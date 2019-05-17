@@ -57,17 +57,3 @@ puts bike
 puts "\nAfter #{bike.percent_price_increase} percent hike in price:"
 bike.price_increase
 puts bike
-
-
-
-
-
-
-
-
-
-
-
-
-
-
