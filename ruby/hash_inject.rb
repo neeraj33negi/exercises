@@ -11,7 +11,19 @@ class Array
     hash.sort.to_h
   end
 
+  def hash_inject(data)
+    hash = {"even" => [], "odd" => []}
+    data.each do |key, val|
+      if key & 1 == 1
+        hash["odd"] << val
+      else
+        hash["even"] << val
+      end
+    end
+    hash
+  end
+
 end
 
 arr = ARGV[0].gsub(/[\[\]"']/,"").split(',')
-puts arr.to_hash
+puts arr.hash_inject(arr.to_hash)
